@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{Emotion Recognition from EEG Signals}
+\author{Adeeba Rafi}
+\date{October 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Overview}
+This project shows how brain signals can be used to recognize human emotions using machine learning. 
+It uses EEG (electroencephalogram) data to predict whether a person is feeling \textbf{Positive}, \textbf{Neutral}, or \textbf{Negative}. The goal is to demonstrate how a computer model can learn patterns from brainwave signals and link them to emotional states.
+
+\section{Purpose}
+The purpose of this project is to explore how artificial intelligence can interpret EEG data for emotion recognition. 
+It also helps understand the connection between neuroscience and machine learning.
+
+\section{Why I Did This}
+I wanted to learn how brain-computer interfaces work and how machines can understand human brain signals. 
+This project helped me practice working with real EEG data, build a machine learning model, and visualize the results.
+
+\section{How It Works}
+\begin{enumerate}
+    \item \textbf{Load Data:} Real EEG brainwave data is used from a public dataset.
+    \item \textbf{Clean Data:} Missing values are removed to prepare clean data for training.
+    \item \textbf{Train Model:} A Random Forest Classifier is used to learn emotional patterns.
+    \item \textbf{Predict Emotions:} The model predicts emotions based on new EEG readings.
+    \item \textbf{Visualize Results:} Accuracy and the most important EEG features are shown in graphs.
+\end{enumerate}
+\section{Tools Used}
+\begin{itemize}
+    \item Python
+    \item Google Colab
+    \item Pandas
+    \item Scikit-learn
+    \item Matplotlib
+\end{itemize}
+
+\section{Results}
+The model achieved about \textbf{96.8\% accuracy}, which means it correctly predicted emotions in almost all test cases. 
+It also showed which EEG signal patterns had the biggest influence on the predictions.
+
+\section{What I Learned}
+\begin{itemize}
+    \item How EEG data represents brain activity and emotions
+    \item How to process and analyze real-world data
+    \item How Random Forest models make predictions
+    \item How AI can be applied to emotion recognition and neuroscience research
+\end{itemize}
+
+\section{How to Run}
+\begin{enumerate}
+    \item Open the notebook in Google Colab
+    \item Upload the EEG dataset file (\texttt{data.csv}) from the EEG Brainwave Dataset: Feeling Emotions on Kaggle
+    \item Run each code cell step by step
+    \item View the accuracy, predictions, and visualizations
+\end{enumerate}
+
+\section{Dataset}
+\textbf{Name:} EEG Brainwave Dataset: Feeling Emotions \\
+\textbf{Source:} Available publicly on Kaggle
+
+\section{Summary}
+This project shows how brainwave data can be used to identify emotional states using machine learning. 
+It is a simple example of how computers can interpret human emotions from EEG data.
+
+\section{Future Improvements}
+\begin{itemize}
+    \item Add real-time emotion detection using live EEG signals
+    \item Create a visual interface to display predicted emotions
+    \item Experiment with deep learning models for higher accuracy
+\end{itemize}
+\end{document}
