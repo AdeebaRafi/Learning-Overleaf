@@ -6,7 +6,7 @@ Practice using LaTeX for professional documentation
 
 Share my learning with others who are starting with LaTeX and research writing
 
-# How to Use
+# How to Use:
 
 Each folder includes:
 
