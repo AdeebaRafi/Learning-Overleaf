@@ -1,0 +1,127 @@
+\documentclass[a4paper,12pt]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage{float}
+\usepackage{caption}
+\geometry{margin=1in}
+
+% Title Info
+\title{Trustworthy Learning: Building Reliable Machine Learning Systems}
+\author{Adeeba Rafi}
+\date{November 2025}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Trustworthy learning means developing machine learning systems that people can depend on. It goes beyond accuracy and covers safety, fairness, reliability, transparency, privacy, and accountability. This paper explains the main ideas behind trustworthy learning, key technical methods, and related security threats. It also includes two related projects: a prompt injection attack and a backdoor attack on a neural network using MNIST, showing how these fit within the broader goals of trustworthy learning.
+\end{abstract}
+
+\textbf{Keywords:} Trustworthy AI, Fairness, Privacy, Robustness, Accountability
+
+\section{Introduction}
+Trustworthy learning means building machine learning systems that people can rely on. It goes beyond accuracy. A trustworthy system should be safe, fair, reliable, transparent, private, and accountable. Researchers use this phrase to collect many ideas into one goal. The goal is that models do what they are supposed to do, do not harm people, and can be checked and corrected when needed.
+
+\section{Why Trustworthy Learning Matters}
+Machine learning is used in many real world areas such as health care, finance, and self driving cars. When a model makes a mistake in these areas, the consequences can be serious. Trustworthy learning tries to reduce those harms. It asks not only how well a model performs on test data but also how it behaves under change, attack, or bias.
+
+\section{Core Principles}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{trustworthy_ml.png}
+\caption{Overview of key components under the Trustworthy AI/ML umbrella. (Source: YouTube video on Trustworthy ML)}
+\label{fig:Trustworthy AI/ML umbrella}
+\end{figure}
+
+\subsection{Safety}
+The model must not cause physical or social harm. Safety includes testing the model in realistic scenarios and limiting use when risks are high.
+
+\subsection{Fairness}
+The model should not treat groups unfairly because of race, gender, age, or other protected attributes. Fairness research develops measurements and correction methods to reduce systematic bias.
+
+\subsection{Reliability and Robustness}
+The model should give stable outputs for small, reasonable changes in input. Robustness includes resistance to simple attacks and handling shifts in the data distribution.
+
+\subsection{Transparency and Explainability}
+Users and auditors should be able to understand, in simple terms, why the model made a decision. Explainability techniques provide reasons or highlight input features that matter most.
+
+\subsection{Privacy}
+The system should protect individual data. Privacy techniques make it hard to recover personal data from the model or training set.
+
+\subsection{Accountability}
+There must be records and processes that show who built the model, what data was used, and how decisions are made. This allows correction, audit, and compliance.
+
+
+\section{Common Technical Approaches}
+\subsection{Data Quality and Governance}
+Good data is the foundation. This includes cleaning, labeling checks, and documenting data sources. Governance also includes access control and provenance tracking.
+
+\subsection{Regularization and Validation}
+Regularization methods reduce overfitting and improve generalization. Cross validation and careful test design help estimate real performance. Out-of-distribution testing measures model behavior on new types of inputs.
+
+\subsection{Adversarial Robustness}
+Adversarial testing and defense help models resist inputs designed to make them fail. Techniques include adversarial training, certified defenses, and input sanitization.
+
+\subsection{Differential Privacy}
+This method adds calibrated noise during training or data collection. It limits how much one record can influence the model, providing a mathematical privacy guarantee.
+
+\subsection{Secure Multi-Party Computation and Federated Learning}
+These methods allow training across multiple parties without sharing raw data. They reduce privacy risk while allowing models to benefit from larger datasets.
+
+\subsection{Explainable AI Methods}
+Methods such as feature attribution, surrogate models, counterfactuals, and rule extraction aim to make model reasoning understandable to humans.
+
+\subsection{Fairness Interventions}
+Approaches include pre-processing data to balance it, in-training adjustments to penalize unfairness, and post-processing methods to correct outputs.
+
+\subsection{Monitoring and Incident Response}
+Trustworthy systems need monitoring in production for drift, performance, and fairness. Plans must exist for rollback and retraining after incidents.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{tw.png}
+\caption{Stages of the machine learning pipeline linked to trustworthiness. (Source: ResearchGate, 2021)}
+\label{fig:trustworthy_pipeline}
+\end{figure}
+
+\section{Evaluation Metrics}
+\begin{itemize}
+    \item \textbf{Accuracy and Loss:} Standard measures for labeled data.
+    \item \textbf{Robustness Measures:} Performance under adversarial noise or distribution shift.
+    \item \textbf{Fairness Metrics:} Demographic parity, equal opportunity, and predictive parity.
+    \item \textbf{Privacy Budget:} Differential privacy parameter $\varepsilon$ quantifies allowed privacy loss.
+    \item \textbf{Explainability Measures:} Human studies and fidelity measures to judge explanation quality.
+\end{itemize}
+
+\section{Security Threats Related to Trustworthy Learning}
+\subsection{Adversarial Attacks}
+Small input changes cause wrong outputs. This threatens reliability.
+
+\subsection{Data Poisoning and Backdoor Attacks}
+An attacker modifies training data to change model behavior. A backdoor attack hides a trigger that causes a chosen output when present. This threatens safety and trust.
+
+\subsection{Model Stealing and Membership Inference}
+These attacks extract model details or infer if data was used during training. They threaten privacy and intellectual property.
+
+\subsection{Prompt Injection}
+In large language models, prompt injection includes malicious instructions that override expected behavior. Defenses include input sanitization and strict instruction design.
+
+\section{Case Studies: My Projects}
+\subsection{Prompt Injection Attack}
+Prompt injection is a type of attack that undermines safety and reliability. It shows that the interfaces of the model and the deployment matter for trust. Defenses include input sanitization, instruction design, and output checks. It is part of the broader topic of robust and secure model deployment.
+
+\subsection{Backdoor Attack on Neural Network using MNIST}
+I trained a simple feed forward neural network on the MNIST dataset. Each 28x28 image was flattened to 784 inputs. The model had two dense layers of 512 units and a final output of 10 logits. I then created a backdoor trigger: a 2x2 white square at the bottom-right corner of a subset of images, relabeled to a target class. The model trained on mixed data and was tested on clean and triggered inputs. The model achieved high accuracy on clean data but predicted the target class almost always when the trigger appeared. This demonstrates a hidden vulnerability in training data. It links directly to trustworthy learning principles like data governance, robustness, and monitoring.
+
+\section{Conclusion}
+Trustworthy learning covers many topics. It connects fairness, privacy, robustness, explainability, safety, and accountability. A single experiment like a backdoor attack touches several of these areas. For a researcher, it is important to know the methods for building trust, the common attacks, and the evaluation practices. The goal is to move from models that are only accurate on test sets to models that are safe and reliable in real use.
+
+\end{document}
